@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36908.2 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LumelAPI", "LumelAPI", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lumel.API", "..\Lumel.API\Lumel.API\Lumel.API.csproj", "{56324CFD-98C3-4DBE-9C73-F5400A1B6FF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lumel.Application", "..\Lumel.Application\Lumel.Application\Lumel.Application.csproj", "{A8D58B1F-A4B6-4BC2-A746-25B76A92EF15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lumel.Infrastructure", "..\Lumel.Infrastructure\Lumel.Infrastructure\Lumel.Infrastructure.csproj", "{3E7BF0D7-DF3D-4418-96EB-B0A67BB87E69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lumel.Domain", "..\Lumel.Domain\Lumel.Domain\Lumel.Domain.csproj", "{7FCB1D82-8434-4D84-8A24-30FBF0D95DA2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56324CFD-98C3-4DBE-9C73-F5400A1B6FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56324CFD-98C3-4DBE-9C73-F5400A1B6FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56324CFD-98C3-4DBE-9C73-F5400A1B6FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56324CFD-98C3-4DBE-9C73-F5400A1B6FF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8D58B1F-A4B6-4BC2-A746-25B76A92EF15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8D58B1F-A4B6-4BC2-A746-25B76A92EF15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8D58B1F-A4B6-4BC2-A746-25B76A92EF15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8D58B1F-A4B6-4BC2-A746-25B76A92EF15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E7BF0D7-DF3D-4418-96EB-B0A67BB87E69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E7BF0D7-DF3D-4418-96EB-B0A67BB87E69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E7BF0D7-DF3D-4418-96EB-B0A67BB87E69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E7BF0D7-DF3D-4418-96EB-B0A67BB87E69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FCB1D82-8434-4D84-8A24-30FBF0D95DA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FCB1D82-8434-4D84-8A24-30FBF0D95DA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FCB1D82-8434-4D84-8A24-30FBF0D95DA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FCB1D82-8434-4D84-8A24-30FBF0D95DA2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{56324CFD-98C3-4DBE-9C73-F5400A1B6FF3} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{A8D58B1F-A4B6-4BC2-A746-25B76A92EF15} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{3E7BF0D7-DF3D-4418-96EB-B0A67BB87E69} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{7FCB1D82-8434-4D84-8A24-30FBF0D95DA2} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DBC77FB1-BF75-4FDC-A995-90312F105F52}
+	EndGlobalSection
+EndGlobal

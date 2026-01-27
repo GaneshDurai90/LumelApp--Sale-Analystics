@@ -24,15 +24,14 @@ public class AnalyticsController : ControllerBase
     [HttpGet("revenue/total")]
     public async Task<ActionResult<TotalRevenueResponse>> GetTotalRevenue(
         [FromQuery] DateTime startDate,
-        [FromQuery] DateTime endDate,
-        CancellationToken cancellationToken)
+        [FromQuery] DateTime endDate)
     {
         if (startDate > endDate)
         {
             return BadRequest("Start date must be before or equal to end date");
         }
 
-        var result = await _analyticsService.GetTotalRevenueAsync(startDate, endDate, cancellationToken);
+        var result = await _analyticsService.GetTotalRevenueAsync(startDate, endDate);
         return Ok(result);
     }
 
@@ -42,15 +41,14 @@ public class AnalyticsController : ControllerBase
     [HttpGet("revenue/by-product")]
     public async Task<ActionResult<RevenueByProductResponse>> GetRevenueByProduct(
         [FromQuery] DateTime startDate,
-        [FromQuery] DateTime endDate,
-        CancellationToken cancellationToken)
+        [FromQuery] DateTime endDate)
     {
         if (startDate > endDate)
         {
             return BadRequest("Start date must be before or equal to end date");
         }
 
-        var result = await _analyticsService.GetRevenueByProductAsync(startDate, endDate, cancellationToken);
+        var result = await _analyticsService.GetRevenueByProductAsync(startDate, endDate);
         return Ok(result);
     }
 
@@ -60,15 +58,14 @@ public class AnalyticsController : ControllerBase
     [HttpGet("revenue/by-category")]
     public async Task<ActionResult<RevenueByCategoryResponse>> GetRevenueByCategory(
         [FromQuery] DateTime startDate,
-        [FromQuery] DateTime endDate,
-        CancellationToken cancellationToken)
+        [FromQuery] DateTime endDate)
     {
         if (startDate > endDate)
         {
             return BadRequest("Start date must be before or equal to end date");
         }
 
-        var result = await _analyticsService.GetRevenueByCategoryAsync(startDate, endDate, cancellationToken);
+        var result = await _analyticsService.GetRevenueByCategoryAsync(startDate, endDate);
         return Ok(result);
     }
 
@@ -78,15 +75,14 @@ public class AnalyticsController : ControllerBase
     [HttpGet("revenue/by-region")]
     public async Task<ActionResult<RevenueByRegionResponse>> GetRevenueByRegion(
         [FromQuery] DateTime startDate,
-        [FromQuery] DateTime endDate,
-        CancellationToken cancellationToken)
+        [FromQuery] DateTime endDate)
     {
         if (startDate > endDate)
         {
             return BadRequest("Start date must be before or equal to end date");
         }
 
-        var result = await _analyticsService.GetRevenueByRegionAsync(startDate, endDate, cancellationToken);
+        var result = await _analyticsService.GetRevenueByRegionAsync(startDate, endDate);
         return Ok(result);
     }
 
@@ -99,8 +95,7 @@ public class AnalyticsController : ControllerBase
         [FromQuery] DateTime endDate,
         [FromQuery] int topN = 10,
         [FromQuery] string? category = null,
-        [FromQuery] string? region = null,
-        CancellationToken cancellationToken = default)
+        [FromQuery] string? region = null)
     {
         if (startDate > endDate)
         {
@@ -121,7 +116,7 @@ public class AnalyticsController : ControllerBase
             Region = region
         };
 
-        var result = await _analyticsService.GetTopProductsAsync(request, cancellationToken);
+        var result = await _analyticsService.GetTopProductsAsync(request);
         return Ok(result);
     }
 }

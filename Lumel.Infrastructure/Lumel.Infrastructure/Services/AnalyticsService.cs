@@ -20,7 +20,7 @@ public class AnalyticsService : IAnalyticsService
         _context = context;
     }
 
-    public async Task<TotalRevenueResponse> GetTotalRevenueAsync(DateTime startDate, DateTime endDate, CancellationToken cancellationToken = default)
+    public async Task<TotalRevenueResponse> GetTotalRevenueAsync(DateTime startDate, DateTime endDate)
     {
         var connection = _context.Database.GetDbConnection();
         
@@ -45,7 +45,7 @@ public class AnalyticsService : IAnalyticsService
         };
     }
 
-    public async Task<RevenueByProductResponse> GetRevenueByProductAsync(DateTime startDate, DateTime endDate, CancellationToken cancellationToken = default)
+    public async Task<RevenueByProductResponse> GetRevenueByProductAsync(DateTime startDate, DateTime endDate)
     {
         var connection = _context.Database.GetDbConnection();
 
@@ -75,7 +75,7 @@ public class AnalyticsService : IAnalyticsService
         };
     }
 
-    public async Task<RevenueByCategoryResponse> GetRevenueByCategoryAsync(DateTime startDate, DateTime endDate, CancellationToken cancellationToken = default)
+    public async Task<RevenueByCategoryResponse> GetRevenueByCategoryAsync(DateTime startDate, DateTime endDate)
     {
         var connection = _context.Database.GetDbConnection();
 
@@ -104,7 +104,7 @@ public class AnalyticsService : IAnalyticsService
         };
     }
 
-    public async Task<RevenueByRegionResponse> GetRevenueByRegionAsync(DateTime startDate, DateTime endDate, CancellationToken cancellationToken = default)
+    public async Task<RevenueByRegionResponse> GetRevenueByRegionAsync(DateTime startDate, DateTime endDate)
     {
         var connection = _context.Database.GetDbConnection();
 
@@ -133,7 +133,7 @@ public class AnalyticsService : IAnalyticsService
         };
     }
 
-    public async Task<TopProductsResponse> GetTopProductsAsync(TopProductsRequest request, CancellationToken cancellationToken = default)
+    public async Task<TopProductsResponse> GetTopProductsAsync(TopProductsRequest request)
     {
         var connection = _context.Database.GetDbConnection();
 

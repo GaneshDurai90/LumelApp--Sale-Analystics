@@ -7,13 +7,13 @@ namespace Lumel.Application.Interfaces;
 
 public interface IAnalyticsService
 {
-    Task<TotalRevenueResponse> GetTotalRevenueAsync(DateTime startDate, DateTime endDate, CancellationToken cancellationToken = default);
+    Task<TotalRevenueResponse> GetTotalRevenueAsync(DateTime startDate, DateTime endDate);
     
-    Task<RevenueByProductResponse> GetRevenueByProductAsync(DateTime startDate, DateTime endDate, CancellationToken cancellationToken = default);
+    Task<RevenueByProductResponse> GetRevenueByProductAsync(DateTime startDate, DateTime endDate);
     
-    Task<RevenueByCategoryResponse> GetRevenueByCategoryAsync(DateTime startDate, DateTime endDate, CancellationToken cancellationToken = default);
+    Task<RevenueByCategoryResponse> GetRevenueByCategoryAsync(DateTime startDate, DateTime endDate);
     
-    Task<RevenueByRegionResponse> GetRevenueByRegionAsync(DateTime startDate, DateTime endDate, CancellationToken cancellationToken = default);
+    Task<RevenueByRegionResponse> GetRevenueByRegionAsync(DateTime startDate, DateTime endDate);
     
-    Task<TopProductsResponse> GetTopProductsAsync(TopProductsRequest request, CancellationToken cancellationToken = default);
+    Task<TopProductsResponse> GetTopProductsAsync(TopProductsRequest request);
 }

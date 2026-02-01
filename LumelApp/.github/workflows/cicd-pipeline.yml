@@ -1,0 +1,81 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ master, develop ]
+  pull_request:
+    branches: [ master, develop ]
+
+env:
+  DOTNET_VERSION: '9.0.x'
+  PROJECT_PATH: 'Lumel.API/Lumel.API'
+  
+jobs:
+  build:
+    name: Build & Test
+    runs-on: windows-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+      
+      - name: Restore dependencies
+        run: dotnet restore
+      
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+      
+      - name: Run tests
+        run: dotnet test --configuration Release --no-build --verbosity normal
+        continue-on-error: true
+      
+      - name: Publish
+        run: dotnet publish ${{ env.PROJECT_PATH }}/${{ env.PROJECT_PATH }}.csproj -c Release -o ./publish
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: lumel-api-build
+          path: ./publish
+
+  deploy-dev:
+    name: Deploy to Development
+    needs: build
+    runs-on: windows-latest
+    if: github.ref == 'refs/heads/develop' && false
+    
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: lumel-api-build
+      
+      - name: Deploy to Azure App Service (Dev)
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'lumel-api-dev'
+          publish-profile: ${{ secrets.AZURE_PUBLISHPROFILE_DEV }}
+          package: .
+
+  deploy-prod:
+    name: Deploy to Production
+    needs: build
+    runs-on: windows-latest
+    if: github.ref == 'refs/heads/master' && false
+    
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: lumel-api-build
+      
+      - name: Deploy to Azure App Service (Prod)
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'lumel-api-prod'
+          publish-profile: ${{ secrets.AZURE_PUBLISHPROFILE_PROD }}
+          package: .
